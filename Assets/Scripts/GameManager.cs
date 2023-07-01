@@ -4,8 +4,13 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameSetup gameSetup;
 
-    private void Start()
+    private void Awake()
     {
         gameSetup.SetUpGameScene();
+    }
+
+    public GameObject GetPlayer()
+    {
+        return gameSetup.GetPlayer();
     }
 }
