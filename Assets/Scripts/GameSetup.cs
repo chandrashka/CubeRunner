@@ -6,6 +6,7 @@ public class GameSetup : MonoBehaviour
     [SerializeField] private GameObject trackGroundPrefab;
 
     private readonly GameObject[] _track = new GameObject[3];
+    private GameObject _player;
     
     private int _zCoordForNextTrack;
     private const int TrackLength = 30;
@@ -20,7 +21,12 @@ public class GameSetup : MonoBehaviour
     private void CreatePlayer()
     {
         var position = new Vector3(0, 0, PlayerPositionZ);
-        Instantiate(playerPrefab, position, Quaternion.identity);
+        _player = Instantiate(playerPrefab, position, Quaternion.identity);
+    }
+
+    public GameObject GetPlayer()
+    {
+        return _player;
     }
 
     private void CreateTrack()
