@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     {
         levelManager.RestartLevel();
         uiManager.SetGameMenu();
+        levelManager.StartMovement();
     }
 
     public void EndGame()

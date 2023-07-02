@@ -130,6 +130,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 349573288925225360, guid: d9ce45b6decb1724584923dfb9761356,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
     - target: {fileID: 2076399478334519667, guid: d9ce45b6decb1724584923dfb9761356,
         type: 3}
       propertyPath: m_RootOrder
@@ -203,17 +208,27 @@ PrefabInstance:
     - target: {fileID: 3875641834780564931, guid: d9ce45b6decb1724584923dfb9761356,
         type: 3}
       propertyPath: playerSpeed
-      value: -7
+      value: -8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3875641834780564931, guid: d9ce45b6decb1724584923dfb9761356,
+        type: 3}
+      propertyPath: sideMovementSpeed
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5721385004863019344, guid: d9ce45b6decb1724584923dfb9761356,
         type: 3}
       propertyPath: m_BreakForce
-      value: 100
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 5721385004863019344, guid: d9ce45b6decb1724584923dfb9761356,
         type: 3}
       propertyPath: m_BreakTorque
-      value: 100
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8674974393931626076, guid: d9ce45b6decb1724584923dfb9761356,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 116
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9ce45b6decb1724584923dfb9761356, type: 3}
