@@ -2,15 +2,30 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameSetup gameSetup;
+    [SerializeField] public LevelManager levelManager;
+    [SerializeField] private UIManager uiManager;
 
-    private void Awake()
+    private void Start()
     {
-        gameSetup.SetUpGameScene();
+        uiManager.SetStartMenu();
     }
 
-    public GameObject GetPlayer()
+    public void StartGame()
     {
-        return gameSetup.GetPlayer();
+        uiManager.SetGameMenu();
+        levelManager.CreateScene();
+        levelManager.StartMovement();
+    }
+
+    public void RestartGame()
+    {
+        levelManager.RestartLevel();
+        uiManager.SetGameMenu();
+    }
+
+    public void EndGame()
+    {
+        levelManager.EndLevel();
+        uiManager.SetEndMenu();
     }
 }

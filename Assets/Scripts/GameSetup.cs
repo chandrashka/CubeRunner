@@ -1,42 +1,37 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameSetup : MonoBehaviour
 {
-    [SerializeField] private GameObject playerPrefab;
+    [SerializeField] private GameObject player;
     [SerializeField] private GameObject trackGroundPrefab;
 
-    private readonly GameObject[] _track = new GameObject[3];
-    private GameObject _player;
-    
     private int _zCoordForNextTrack;
     private const int TrackLength = 30;
-    private const int PlayerPositionZ = 2;
-
-    public void SetUpGameScene()
+    private const int PlayerStartPositionZ = 2;
+    
+    public void MovePlayerToStart()
     {
-        CreateTrack();
-        CreatePlayer();
+        var position = new Vector3(0, 1, PlayerStartPositionZ);
+        player.transform.position = position;
     }
 
-    private void CreatePlayer()
+    public void ResetGameSetUp()
     {
-        var position = new Vector3(0, 0, PlayerPositionZ);
-        _player = Instantiate(playerPrefab, position, Quaternion.identity);
+        _zCoordForNextTrack = 0;
     }
 
-    public GameObject GetPlayer()
+    public List<GameObject> CreateTrack()
     {
-        return _player;
-    }
-
-    private void CreateTrack()
-    {
+        var track = new List<GameObject>();
         for (var i = 0; i < 3; i++)
         {
             var position = new Vector3(0, 0, _zCoordForNextTrack);
-            _track[i] = Instantiate(trackGroundPrefab, position, Quaternion.identity);
+            track.Add(Instantiate(trackGroundPrefab, position, Quaternion.identity));
             _zCoordForNextTrack += TrackLength;
         }
+
+        return track;
     }
 }
 
