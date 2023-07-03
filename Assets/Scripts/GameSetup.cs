@@ -4,6 +4,7 @@ using UnityEngine;
 public class GameSetup : MonoBehaviour
 {
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject playersCube;
     [SerializeField] private GameObject trackGroundPrefab;
 
     private int _zCoordForNextTrack;
@@ -12,8 +13,10 @@ public class GameSetup : MonoBehaviour
     
     public void MovePlayerToStart()
     {
-        var position = new Vector3(0, 1, PlayerStartPositionZ);
-        player.transform.position = position;
+        var playerPosition = new Vector3(0, 1, PlayerStartPositionZ);
+        player.transform.position = playerPosition;
+        var cubePosition = new Vector3(0, 0, PlayerStartPositionZ);
+        playersCube.transform.Translate(cubePosition);
     }
 
     public void ResetGameSetUp()

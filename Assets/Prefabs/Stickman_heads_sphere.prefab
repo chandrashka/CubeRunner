@@ -380,8 +380,7 @@ GameObject:
   - component: {fileID: 4279075403791194285}
   - component: {fileID: 2380011042658419406}
   - component: {fileID: 336980135542973760}
-  - component: {fileID: 3722493112151099980}
-  - component: {fileID: 5262325515909107423}
+  - component: {fileID: 4744805137394538729}
   m_Layer: 0
   m_Name: Stickman_heads_sphere
   m_TagString: Untagged
@@ -408,7 +407,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!95 &4279075403791194285
 Animator:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -425,8 +424,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!65 &2380011042658419406
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -456,22 +454,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 118
   m_CollisionDetection: 0
---- !u!138 &3722493112151099980
-FixedJoint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8592876449704463762}
-  m_ConnectedBody: {fileID: 0}
-  m_ConnectedArticulationBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
---- !u!114 &5262325515909107423
+--- !u!114 &4744805137394538729
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -483,7 +466,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e13e43f09b5ded44ba33d53ab8151d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: -5
+  playerSpeed: 6
+  sideMovementSpeed: 9
 --- !u!1 &8592876449704463764
 GameObject:
   m_ObjectHideFlags: 0

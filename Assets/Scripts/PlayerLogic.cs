@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class PlayerLogic : MonoBehaviour
@@ -16,7 +15,7 @@ public class PlayerLogic : MonoBehaviour
         _gameManager = FindObjectOfType<GameManager>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (Input.touchCount > 0)
         {
@@ -24,24 +23,20 @@ public class PlayerLogic : MonoBehaviour
 
             if(touch.phase == TouchPhase.Moved)
             {
-                Rigidbody rigidbody = GetComponent<Rigidbody>();
                 var xCoord = touch.deltaPosition.x;
-                if (xCoord < 0)
+                switch (xCoord)
                 {
-                    rigidbody.AddRelativeForce(transform.right * -sideMovementSpeed, ForceMode.Impulse);
-                }
-                else if(xCoord > 0)
-                {
-                    rigidbody.AddRelativeForce(transform.right * sideMovementSpeed, ForceMode.Impulse);
+                    case < 0:
+                        transform.Translate(transform.right * (-Time.deltaTime * sideMovementSpeed));
+                        break;
+                    case > 0:
+                        transform.Translate(transform.right * (Time.deltaTime * sideMovementSpeed));
+                        break;
                 }
             }
         }
-    }
-
-    private void FixedUpdate()
-    {
         
-        if(_isMoving) transform.Translate(0,0,playerSpeed * Time.deltaTime);
+        if(_isMoving) transform.Translate(0,0,playerSpeed * Time.deltaTime * -1);
 
         var position = transform.position;
         var rayBeginning = new Vector3(position.x, position.y, position.z);
