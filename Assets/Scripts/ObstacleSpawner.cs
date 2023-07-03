@@ -4,10 +4,14 @@ using UnityEngine;
 public class ObstacleSpawner : MonoBehaviour
 {
     [SerializeField] private List<GameObject> obstaclePrefabs;
+    
     [SerializeField] private int obstacleDistance;
     [SerializeField] private int obstacleStartZCoord;
     private int _obstacleCurrentZCoord;
+    private const int ObstaclePerGroup = 4;
+    
     private readonly List<GameObject> _obstacles = new();
+    
     private System.Random _random;
 
     private void Awake()
@@ -35,18 +39,13 @@ public class ObstacleSpawner : MonoBehaviour
         
         _obstacleCurrentZCoord += obstacleDistance;
     }
-    
-    private void DeleteObstacle(GameObject obstacle)
-    {
-        Destroy(obstacle);
-    }
 
     public void DeleteAllObstacles()
     {
         for (var i = 0; i < _obstacles.Count; i++)
         {
             var obstacle = _obstacles[i];
-            DeleteObstacle(obstacle);
+            Destroy(obstacle);
         }
     }
 }

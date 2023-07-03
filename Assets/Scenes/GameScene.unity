@@ -928,6 +928,7 @@ GameObject:
   - component: {fileID: 834757274}
   - component: {fileID: 834757273}
   - component: {fileID: 834757275}
+  - component: {fileID: 834757276}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -948,7 +949,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1772127755}
-  playersCube: {fileID: 1943139207}
   trackGroundPrefab: {fileID: 8635103698508136598, guid: 50a4c5a3ba3f26d469aac1ecdbaefd2f,
     type: 3}
 --- !u!114 &834757271
@@ -1028,6 +1028,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startMenuCanvas: {fileID: 982832242}
   endGameCanvas: {fileID: 1957688156}
+--- !u!114 &834757276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834757269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fda83f1aa7a6733418145312e63418a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubePrefab: {fileID: 3481367610352654943, guid: 085ad57d0f0d5924f8ec77fd5eeb27f9,
+    type: 3}
+  maxCubesToSpawn: 5
+  minCubesToSpawn: 3
+  maxXCoord: 2
+  minXCoord: -2
+  distanceBetweenCubeGroups: 20
+  minDistanceBetweenCubesInGroup: 2
+  maxDistanceBetweenCubesInGroup: 5
+  cubeStartZCoord: 8
 --- !u!1 &887795878
 GameObject:
   m_ObjectHideFlags: 0
@@ -1434,12 +1456,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1943139207 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3831991006285222695, guid: d9ce45b6decb1724584923dfb9761356,
-    type: 3}
-  m_PrefabInstance: {fileID: 57159201}
-  m_PrefabAsset: {fileID: 0}
 --- !u!54 &1943139210 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 349573288925225360, guid: d9ce45b6decb1724584923dfb9761356,

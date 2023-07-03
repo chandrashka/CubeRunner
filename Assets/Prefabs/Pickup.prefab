@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9152487280110713868}
   - component: {fileID: 6438492146615571872}
   - component: {fileID: 8549586635162537659}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: -2885830074945915805}
   - component: {fileID: 118313962971064552}
   - component: {fileID: 5245943581313871632}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}

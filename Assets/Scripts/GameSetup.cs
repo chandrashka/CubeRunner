@@ -4,19 +4,16 @@ using UnityEngine;
 public class GameSetup : MonoBehaviour
 {
     [SerializeField] private GameObject player;
-    [SerializeField] private GameObject playersCube;
     [SerializeField] private GameObject trackGroundPrefab;
 
+    private List<GameObject> _tracks = new ();
     private int _zCoordForNextTrack;
     private const int TrackLength = 30;
-    private const int PlayerStartPositionZ = 2;
+    private readonly Vector3 _playerStartPosition = new (0,1,2);
     
     public void MovePlayerToStart()
     {
-        var playerPosition = new Vector3(0, 1, PlayerStartPositionZ);
-        player.transform.position = playerPosition;
-        var cubePosition = new Vector3(0, 0, PlayerStartPositionZ);
-        playersCube.transform.Translate(cubePosition);
+        player.transform.position = _playerStartPosition;
     }
 
     public void ResetGameSetUp()
@@ -24,17 +21,21 @@ public class GameSetup : MonoBehaviour
         _zCoordForNextTrack = 0;
     }
 
-    public List<GameObject> CreateTrack()
+    public void CreateTrack()
     {
-        var track = new List<GameObject>();
-        for (var i = 0; i < 3; i++)
-        {
-            var position = new Vector3(0, 0, _zCoordForNextTrack);
-            track.Add(Instantiate(trackGroundPrefab, position, Quaternion.identity));
-            _zCoordForNextTrack += TrackLength;
-        }
+        var position = new Vector3(0, 0, _zCoordForNextTrack);
+        var track = Instantiate(trackGroundPrefab, position, Quaternion.identity);
+        _tracks.Add(track);
+        _zCoordForNextTrack += TrackLength;
+        
+    }
 
-        return track;
+    public void DeleteTrack()
+    {
+        for (var i = 0; i < _tracks.Count; i++)
+        {
+            Destroy(_tracks[i]);
+        }
     }
 }
 
