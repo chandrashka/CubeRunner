@@ -57,4 +57,5 @@ public class PlayerLogic : MonoBehaviour
     {
         _isMoving = false;
     }
+    
 }

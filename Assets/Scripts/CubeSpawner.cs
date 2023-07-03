@@ -35,6 +35,7 @@ public class CubeSpawner : MonoBehaviour
     public void ResetSpawner()
     {
         _cubeCurrentZCoord = cubeStartZCoord;
+        _groupNum = 0;
     }
 
     public void CreateCubeGroup()
