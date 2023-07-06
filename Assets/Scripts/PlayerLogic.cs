@@ -57,5 +57,9 @@ public class PlayerLogic : MonoBehaviour
     {
         _isMoving = false;
     }
-    
+
+    public void MovePLayerUp()
+    {
+        transform.Translate(transform.up);
+    }
 }

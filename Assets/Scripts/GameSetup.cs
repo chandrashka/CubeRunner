@@ -6,7 +6,7 @@ public class GameSetup : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject trackGroundPrefab;
 
-    private List<GameObject> _tracks = new ();
+    private readonly List<GameObject> _tracks = new ();
     private int _zCoordForNextTrack;
     private const int TrackLength = 30;
     private readonly Vector3 _playerStartPosition = new (0,1,2);

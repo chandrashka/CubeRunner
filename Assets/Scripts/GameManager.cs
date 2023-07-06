@@ -29,4 +29,14 @@ public class GameManager : MonoBehaviour
         levelManager.EndLevel();
         uiManager.SetEndMenu();
     }
+
+    public void AddCubeToPlayer(CubeLogic logic)
+    {
+        levelManager.AddCubeToPlayer(logic);
+    }
+
+    public Vector3 GetPlayerPosition()
+    {
+        return levelManager.GetPlayerPosition();
+    }
 }

@@ -8,8 +8,7 @@ public class ObstacleSpawner : MonoBehaviour
     [SerializeField] private int obstacleDistance;
     [SerializeField] private int obstacleStartZCoord;
     private int _obstacleCurrentZCoord;
-    private const int ObstaclePerGroup = 4;
-    
+
     private readonly List<GameObject> _obstacles = new();
     
     private System.Random _random;
@@ -42,9 +41,8 @@ public class ObstacleSpawner : MonoBehaviour
 
     public void DeleteAllObstacles()
     {
-        for (var i = 0; i < _obstacles.Count; i++)
+        foreach (var obstacle in _obstacles)
         {
-            var obstacle = _obstacles[i];
             Destroy(obstacle);
         }
     }

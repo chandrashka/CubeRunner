@@ -58,10 +58,9 @@ public class CubeSpawner : MonoBehaviour
 
     public void DeleteAllCubes()
     {
-        for (var i = 0; i < _cubes.Count; i++)
+        foreach (var cube in _cubes)
         {
-            var obstacle = _cubes[i];
-            Destroy(obstacle);
+            Destroy(cube);
         }
     }
 }

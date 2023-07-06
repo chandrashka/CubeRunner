@@ -7,7 +7,11 @@ public class LevelManager : MonoBehaviour
     private GameSetup _gameSetup;
     private const int StartTracksNum = 3;
     [SerializeField] private GameObject player;
+
     private PlayerLogic _playerLogic;
+
+    private int _playerCubeCount;
+    [SerializeField] private float firstCubeYCoordinate;
 
     private void Awake()
     {
@@ -21,11 +25,12 @@ public class LevelManager : MonoBehaviour
     {
         CreateFullTrack();
         _gameSetup.MovePlayerToStart();
+
     }
 
     private void CreateFullTrack()
     {
-        for (int i = 0; i < StartTracksNum; i++)
+        for (var i = 0; i < StartTracksNum; i++)
         {
             CreateTrackPart();
         }
@@ -55,6 +60,7 @@ public class LevelManager : MonoBehaviour
         
         _cubeSpawner.DeleteAllCubes();
         _cubeSpawner.ResetSpawner();
+        _playerCubeCount = 0;
         
         _gameSetup.ResetGameSetUp();
         _gameSetup.DeleteTrack();
@@ -62,9 +68,31 @@ public class LevelManager : MonoBehaviour
         CreateScene();
     }
     
-
     public void EndLevel()
     {
         StopMovement();
+    }
+
+    public void AddCubeToPlayer(CubeLogic logic)
+    {
+        _playerLogic.MovePLayerUp();
+        
+        _playerCubeCount++;
+        
+        MoveCubeToPlayer(logic);
+    }
+
+    private void MoveCubeToPlayer(CubeLogic logic)
+    {
+        var playerPosition = GetPlayerPosition();
+        var yCoord = firstCubeYCoordinate + _playerCubeCount;
+        
+        var newCubePosition = new Vector3(playerPosition.x, yCoord, playerPosition.z);
+        logic.MoveCubeToPlayer(newCubePosition);
+    }
+
+    public Vector3 GetPlayerPosition()
+    {
+        return player.transform.position;
     }
 }

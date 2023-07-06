@@ -129,8 +129,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 0.9674369, z: 1}
+  m_Center: {x: 0, y: 0.01628153, z: 0}
 --- !u!54 &118313962971064552
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -145,7 +145,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 118
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &5245943581313871632
 MonoBehaviour:
@@ -159,3 +159,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99d2acf49cc86224e86cf0d96ca8273a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayersCube: 0
