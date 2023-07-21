@@ -11,8 +11,10 @@ public class CameraMovement : MonoBehaviour
         _deltaPosition = transform.position - player.transform.position;
     }
 
-    private void FixedUpdate()
+    private void LateUpdate()
     {
-        transform.position = player.transform.position + _deltaPosition;
+        var playerPosition = player.transform.position;
+        transform.position =  new Vector3(playerPosition.x + _deltaPosition.x, transform.position.y, 
+            playerPosition.z + _deltaPosition.z);
     }
 }

@@ -32,9 +32,9 @@ public class GameSetup : MonoBehaviour
 
     public void DeleteTrack()
     {
-        for (var i = 0; i < _tracks.Count; i++)
+        foreach (var track in _tracks)
         {
-            Destroy(_tracks[i]);
+            Destroy(track);
         }
     }
 }

@@ -13,16 +13,15 @@ public class CubeLogic : MonoBehaviour
         _gameManager = FindObjectOfType<GameManager>();
     }
 
-    private void FixedUpdate()
+    private void LateUpdate()
     {
-        if (isPlayersCube)
-        {
-            var playerPosition = _gameManager.GetPlayerPosition();
+        if (!isPlayersCube) return;
+        
+        var playerPosition = _gameManager.GetPlayerPosition();
 
-            var newPosition = new Vector3(playerPosition.x, _cubeYCoordinate, playerPosition.z);
+        var newPosition = new Vector3(playerPosition.x, _cubeYCoordinate, playerPosition.z);
 
-            transform.position = newPosition;
-        }
+        transform.position = newPosition;
     }
 
     public void MoveCubeToPlayer(Vector3 position)

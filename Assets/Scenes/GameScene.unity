@@ -233,7 +233,7 @@ PrefabInstance:
     - target: {fileID: 4401826323586616309, guid: d9ce45b6decb1724584923dfb9761356,
         type: 3}
       propertyPath: sideMovementSpeed
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5598237143193724520, guid: d9ce45b6decb1724584923dfb9761356,
         type: 3}
@@ -277,8 +277,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8674974393931626076, guid: d9ce45b6decb1724584923dfb9761356,
         type: 3}
-      propertyPath: m_IsKinematic
+      propertyPath: m_Interpolate
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8674974393931626076, guid: d9ce45b6decb1724584923dfb9761356,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9ce45b6decb1724584923dfb9761356, type: 3}

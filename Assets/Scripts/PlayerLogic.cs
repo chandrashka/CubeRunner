@@ -7,9 +7,6 @@ public class PlayerLogic : MonoBehaviour
     private bool _isMoving;
     private const float DistanceToObstacle = 0.5f;
 
-    [SerializeField] private float sideMovementSpeed;
-    
-
     private void Awake()
     {
         _gameManager = FindObjectOfType<GameManager>();
@@ -27,10 +24,12 @@ public class PlayerLogic : MonoBehaviour
                 switch (xCoord)
                 {
                     case < 0:
-                        transform.Translate(transform.right * (-Time.deltaTime * sideMovementSpeed));
+                        GetComponent<Rigidbody>().AddRelativeForce(-transform.right, ForceMode.Impulse);
+                        //transform.Translate(transform.right * (-Time.deltaTime * sideMovementSpeed));
                         break;
                     case > 0:
-                        transform.Translate(transform.right * (Time.deltaTime * sideMovementSpeed));
+                        GetComponent<Rigidbody>().AddRelativeForce(transform.right, ForceMode.Impulse);
+                        //transform.Translate(transform.right * (Time.deltaTime * sideMovementSpeed));
                         break;
                 }
             }
@@ -40,12 +39,10 @@ public class PlayerLogic : MonoBehaviour
 
         var position = transform.position;
         var rayBeginning = new Vector3(position.x, position.y, position.z);
-        if (Physics.Raycast(rayBeginning, Vector3.forward, 
-                DistanceToObstacle, LayerMask.GetMask("Wall")))
-        {
-            StopMovement();
-            _gameManager.EndGame();
-        }
+        if (!Physics.Raycast(rayBeginning, Vector3.forward,
+                DistanceToObstacle, LayerMask.GetMask("Wall"))) return;
+        StopMovement();
+        _gameManager.EndGame();
     }
 
     public void StartMovement()
